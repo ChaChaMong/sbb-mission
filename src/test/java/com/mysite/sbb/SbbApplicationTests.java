@@ -5,9 +5,13 @@ import com.mysite.sbb.answer.AnswerRepository;
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionRepository;
 import com.mysite.sbb.question.QuestionService;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -18,6 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
+@ActiveProfiles("test")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class SbbApplicationTests {
 
 	@Autowired
@@ -30,6 +36,7 @@ class SbbApplicationTests {
 	private QuestionService questionService;
 
 	@Test
+	@Order(1)
 	void testJpa1() {
 		Question q1 = new Question();
 		q1.setSubject("sbb가 무엇인가요?");
@@ -45,6 +52,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(2)
 	void testJpa2() {
 		List<Question> all = this.questionRepository.findAll();
 		assertEquals(2, all.size());
@@ -54,6 +62,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(3)
 	void testJpa3() {
 		Optional<Question> oq = this.questionRepository.findById(1);
 		if(oq.isPresent()) {
@@ -63,12 +72,14 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(4)
 	void testJpa4() {
 		Question q = this.questionRepository.findBySubject("sbb가 무엇인가요?");
 		assertEquals(1, q.getId());
 	}
 
 	@Test
+	@Order(5)
 	void testJpa5() {
 		Question q = this.questionRepository.findBySubjectAndContent(
 				"sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
@@ -76,6 +87,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(6)
 	void testJpa6() {
 		List<Question> qList = this.questionRepository.findBySubjectLike("sbb%");
 		Question q = qList.get(0);
@@ -83,6 +95,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(7)
 	void testJpa7() {
 		Optional<Question> oq = this.questionRepository.findById(1);
 		assertTrue(oq.isPresent());
@@ -92,6 +105,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(8)
 	void testJpa8() {
 		assertEquals(2, this.questionRepository.count());
 		Optional<Question> oq = this.questionRepository.findById(1);
@@ -102,6 +116,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(9)
 	void testJpa9() {
 		Optional<Question> oq = this.questionRepository.findById(2);
 		assertTrue(oq.isPresent());
@@ -115,6 +130,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(10)
 	void testJpa10() {
 		Optional<Answer> oa = this.answerRepository.findById(1);
 		assertTrue(oa.isPresent());
@@ -123,6 +139,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(11)
 	@Transactional
 	void testJpa11() {
 		Optional<Question> oq = this.questionRepository.findById(2);
@@ -136,6 +153,7 @@ class SbbApplicationTests {
 	}
 
 	@Test
+	@Order(12)
 	void testJpa12() {
 		for (int i = 1; i <= 300; i++) {
 			String subject = String.format("테스트 데이터입니다:[%03d]", i);
