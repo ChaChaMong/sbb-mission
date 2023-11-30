@@ -1,7 +1,7 @@
-package com.mysite.sbb.question;
+package com.mysite.sbb.domain.question;
 
-import com.mysite.sbb.DataNotFoundException;
-import com.mysite.sbb.user.SiteUser;
+import com.mysite.sbb.global.DataNotFoundException;
+import com.mysite.sbb.domain.user.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

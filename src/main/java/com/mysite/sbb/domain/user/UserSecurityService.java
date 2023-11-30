@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.mysite.sbb.domain.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

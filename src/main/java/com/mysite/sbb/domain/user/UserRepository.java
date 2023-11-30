@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.mysite.sbb.domain.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,8 +1,8 @@
-package com.mysite.sbb.question;
+package com.mysite.sbb.domain.question;
 
-import com.mysite.sbb.answer.AnswerForm;
-import com.mysite.sbb.user.SiteUser;
-import com.mysite.sbb.user.UserService;
+import com.mysite.sbb.domain.answer.AnswerForm;
+import com.mysite.sbb.domain.user.SiteUser;
+import com.mysite.sbb.domain.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

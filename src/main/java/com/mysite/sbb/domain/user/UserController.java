@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.mysite.sbb.domain.user;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

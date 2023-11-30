@@ -1,10 +1,10 @@
 package com.mysite.sbb;
 
-import com.mysite.sbb.answer.Answer;
-import com.mysite.sbb.answer.AnswerRepository;
-import com.mysite.sbb.question.Question;
-import com.mysite.sbb.question.QuestionRepository;
-import com.mysite.sbb.question.QuestionService;
+import com.mysite.sbb.domain.answer.Answer;
+import com.mysite.sbb.domain.answer.AnswerRepository;
+import com.mysite.sbb.domain.question.Question;
+import com.mysite.sbb.domain.question.QuestionRepository;
+import com.mysite.sbb.domain.question.QuestionService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
